@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://tree_puncher_assets/sprites/skybox_sideHills.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tree_puncher_assets/sprites/dirt_grass.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Trunk.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=5]
+[ext_resource path="res://tree_puncher_assets/sprites/Grave.png" type="Texture" id=6]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=7]
+
+[node name="Game" type="Node"]
+script = ExtResource( 5 )
+trunk_scene = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 160, 1216 )
+scale = Vector2( 2.03856, 2.85805 )
+z_index = -10
+texture = ExtResource( 1 )
+offset = Vector2( 94.196, -168.555 )
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2( -32, -1152 )
+scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tile" type="Sprite" parent="Ground"]
+position = Vector2( 64, 1216 )
+texture = ExtResource( 3 )
+
+[node name="Tile2" type="Sprite" parent="Ground"]
+position = Vector2( 192, 1216 )
+texture = ExtResource( 3 )
+
+[node name="Tile3" type="Sprite" parent="Ground"]
+position = Vector2( 320, 1216 )
+texture = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 576, 1022 )
+
+[node name="FirstTrunkPosition" type="Position2D" parent="."]
+position = Vector2( 352, 1024 )
+
+[node name="Grave" type="Sprite" parent="."]
+visible = false
+position = Vector2( 576, 1062 )
+texture = ExtResource( 6 )
+
+[node name="TimeLeft" type="ProgressBar" parent="."]
+margin_left = 207.0
+margin_top = 128.0
+margin_right = 495.0
+margin_bottom = 192.0
+max_value = 5.0
+step = 0.01
+value = 5.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="Score" type="RichTextLabel" parent="."]
+anchor_right = 0.056
+anchor_bottom = 0.031
+margin_left = 288.0
+margin_top = 1184.0
+margin_right = 407.68
+margin_bottom = 1240.32
+custom_fonts/normal_font = ExtResource( 7 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
