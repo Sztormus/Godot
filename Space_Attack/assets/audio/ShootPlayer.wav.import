@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShootPlayer.wav-83cf80d422a697205e84aa5bcdf581ae.sample"
+
+[deps]
+
+source_file="res://assets/audio/ShootPlayer.wav"
+dest_files=[ "res://.import/ShootPlayer.wav-83cf80d422a697205e84aa5bcdf581ae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
