@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://platforms/ground_grass.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/NormalPlatform.gd" type="Script" id=2]
+
+[node name="GrassPlatform" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -180.031, -45.1646, 179.969, -47.1646, 188.969, -32.1646, 187.969, -15.1646, 159.969, 34.8354, -161.031, 45.8354, -190.031, -15.1646, -189.031, -37.1646 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

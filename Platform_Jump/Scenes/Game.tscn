@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/GrassPlatform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GrassPlatformSmall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GrassPlatformBreak.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/MovingGrassPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fonts/adaDylan_96.tres" type="DynamicFont" id=7]
+[ext_resource path="res://background/bg_layer1.png" type="Texture" id=8]
+[ext_resource path="res://background/bg_layer3.png" type="Texture" id=9]
+[ext_resource path="res://background/bg_layer2.png" type="Texture" id=10]
+[ext_resource path="res://background/bg_layer4.png" type="Texture" id=11]
+
+[node name="Game" type="Node"]
+script = ExtResource( 3 )
+platforms = [ ExtResource( 1 ), ExtResource( 4 ) ]
+special_platforms = [ ExtResource( 5 ), ExtResource( 6 ) ]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( 216, 648 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="Background"]
+position = Vector2( 214.121, 652 )
+texture = ExtResource( 10 )
+
+[node name="Sprite3" type="Sprite" parent="Background"]
+position = Vector2( 216, 652 )
+texture = ExtResource( 9 )
+
+[node name="Sprite4" type="Sprite" parent="Background"]
+position = Vector2( 216, 652 )
+texture = ExtResource( 11 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Score" type="RichTextLabel" parent="UI"]
+margin_left = 1.0
+margin_top = 1125.0
+margin_right = 717.0
+margin_bottom = 1285.0
+custom_fonts/normal_font = ExtResource( 7 )
+custom_colors/default_color = Color( 0.129412, 0.964706, 0.184314, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 354.111, 559.09 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 6
+[connection signal="just_jumped" from="Player" to="." method="_on_Player_just_jumped"]

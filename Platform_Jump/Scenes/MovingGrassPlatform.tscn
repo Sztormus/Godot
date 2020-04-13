@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/GrassPlatform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MovingPlatform.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -224, -64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, -64 )
+}
+
+[node name="MovingGrassPlatform" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Follow" type="PathFollow2D" parent="."]
+position = Vector2( -0.0402013, -0.520152 )
+offset = 232.916
+rotate = false
+
+[node name="Platform" parent="Follow" instance=ExtResource( 1 )]
