@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/KronaOne_64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/EndMenu.gd" type="Script" id=2]
+
+[node name="EndMenu" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 1.43201
+margin_top = 65.8708
+margin_right = 1277.43
+margin_bottom = 295.871
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Oh, you hit something that 
+you shouldn't![/center]"
+text = "Oh, you hit something that 
+you shouldn't!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="RichTextLabel" parent="."]
+margin_left = 1.43201
+margin_top = 316.466
+margin_right = 1277.43
+margin_bottom = 546.466
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 470.22
+margin_top = 439.091
+margin_right = 797.22
+margin_bottom = 527.091
+custom_fonts/font = ExtResource( 1 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
